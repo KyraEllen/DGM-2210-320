@@ -1,0 +1,110 @@
+//base
+polyCylinder -radius 2 -height 2 -subdivisionsX 15 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -r 0 0.975186 0 ;
+
+//tower A
+polyCylinder -radius 1 -height 1.25 -subdivisionsX 15 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -r 0 2.594251 0 ;
+move -r -0.64341 0 0 ;
+move -r 0 0 0.661977 ;
+move -r -0.0369836 0 0 ;
+move -r 0.533518 0 0 ;
+move -r -0.0773047 0 0 ;
+move -r 0.0995998 0 0.139442 ;
+polyCone -radius 1.1 -height 1.75 -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 0 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -r 0 4.018276 0 ;
+move -r 0 0.0867737 0 ;
+move -r 0 0 0.80542 ;
+move -r -0.100976 0 0 ;
+move -r -0.0215817 0 0 ;
+
+//tower B
+polyCylinder -radius .75 -height 2.25 -subdivisionsX 15 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -r -0.784318 0 -0.750549 ;
+move -r 0 3.071948 0 ;
+polyCone -radius .85 -height 1.83 -subdivisionsX 15 -subdivisionsY 1 -subdivisionsZ 0 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -r 0 5.106334 0 ;
+move -r -0.759008 0 0 ;
+move -r 0 0 -0.72567 ;
+move -r 0 0 -0.046638 ;
+
+//Tower C
+polyCylinder -radius .50 -height .75 -subdivisionsX 15 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -r 0.675683 0 -0.608105 ;
+move -r 0 2.288956 0 ;
+move -r -0.176976 0 0.0202552 ;
+polyCone -radius .60 -height 1 -subdivisionsX 15 -subdivisionsY 1 -subdivisionsZ 0 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -r 0 3.165408 0 ;
+move -r 0.534978 0 -0.622356 ;
+move -r 0 0 0.0479807 ;
+move -r -0.058644 0 0 ;
+
+//Left towers
+polyCylinder -radius .50 -height 2.5 -subdivisionsX 15 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -r 0 1.616509 0 ;
+move -r 0 0 2.415219 ;
+move -r 0 0 -0.00147945 ;
+move -r 0 -0.373319 0 ;
+move -r -0.333506 0 0 ;
+polyCone -radius .55 -height 1 -subdivisionsX 15 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -r 0 0 2.629758 ;
+move -r 0 3.009938 0 ;
+move -r -0.383187 0 -0.17817 ;
+move -r 0 0 -0.0298113 ;
+
+
+polyCylinder -radius .35 -height 1.5 -subdivisionsX 15 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -r 0 0.689448 0 ;
+move -r 1.261532 0 1.952516 ;
+polyCone -radius .40 -height .75 -subdivisionsX 15 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -r 0 1.782944 0 ;
+move -r 1.168852 0 1.97423 ;
+move -r 0.111761 0 0 ;
+
+polyCylinder -radius .30 -height 1 -subdivisionsX 15 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -r 0 0.22373 0 ;
+move -r 0 0.234975 0 ;
+move -r 2.042442 0 1.04514 ;
+move -r -0.0519786 0 0.0191792 ;
+move -r 0.0708511 0 -0.116053 ;
+polyCone -radius .35 -height .50 -subdivisionsX 15 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -r 0 1.26642 0 ;
+move -r 2.04121 0 0.949772 ;
+move -r 0 -0.063089 0 ;
+
+//Right towers
+polyCylinder -radius .50 -height 2.5 -subdivisionsX 15 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -r 0 0 -2.358745 ;
+move -r -0.393715 0 0 ;
+move -r 0 1.253107 0 ;
+move -r 0 -0.0127432 0 ;
+move -r 0 0 -0.0138733 ;
+polyCone -radius .55 -height 1 -subdivisionsX 15 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -r 0 0.453406 0 ;
+move -r -0.399114 0 -2.338216 ;
+move -r 0 2.522067 0 ;
+move -r 0 0 -0.030356 ;
+
+polyCylinder -radius .35 -height 1.5 -subdivisionsX 15 -subdivisionsY 1 -subdivisionsZ 0 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -r 0 0.678061 0 ;
+move -r 1.299388 0 -1.883483 ;
+move -r 0 0.0843761 0 ;
+polyCone -radius .40 -height .75 -subdivisionsX 15 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -r 0 2.258218 0 ;
+move -r 2.138401 0 -1.836892 ;
+move -r -0.780594 0 0 ;
+move -r 0 -0.382032 0 ;
+move -r -0.0316962 0 0 ;
+move -r 0 0 -0.0578904 ;
+
+polyCylinder -radius .30 -height 1 -subdivisionsX 15 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -r 0 0.458828 0 ;
+move -r 2.115894 0 -0.833079 ;
+polyCone -radius .35 -height .50 -subdivisionsX 15 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -r 0 1.227681 0 ;
+move -r 2.113483 0 -0.849113 ;
+move -r 0 0 0.0382618 ;
+move -r 0 0 -0.0459975 ;
+move -r 0 0 0.0383543 ;
+move -r 0 -0.0375223 0 ;
+move -r 0 0 -0.00837422 ;
