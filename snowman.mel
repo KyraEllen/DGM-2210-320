@@ -1,80 +1,60 @@
 //Create base sphere
-polySphere -radius 3 -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
-move -relative -objectSpace -worldSpaceDistance 0 3 0;
+float $basesize = 3;
+polySphere -radius $basesize -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
+move -relative -objectSpace -worldSpaceDistance 0 $basesize 0;
 
 //Create middle sphere
-polySphere -radius 1 -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
-polySphere -e -radius 2;
+float $midsize = 2;
+polySphere -radius $midsize -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
 //print (`polySphere -q -subdivisionsY`);
-move -relative -objectSpace -worldSpaceDistance 0 7 0;
+move -relative -objectSpace -worldSpaceDistance 0 (($basesize * 1.7) + $midsize) 0;
 
-//Create base sphere
-polySphere -radius 1.5 -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
-move -relative -objectSpace -worldSpaceDistance 0 10 0;
+//Create top sphere
+float $topsize = 1.5;
+polySphere -radius $topsize -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
+move -relative -objectSpace -worldSpaceDistance 0 ((($basesize * 1.7) + $midsize*1.7)+ $topsize) 0;
 
 //left arm
 polyCylinder -radius .25 -height 4 -subdivisionsX 8 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
-move -r 0 9.193129 0 ;
-move -r -1.725807 0 0 ;
+move -r -2.867065 ($basesize*3) 0 ;
 rotate -r -ws -fo 0 0 43.282998 ;
-move -r 0 -1.113483 0 ;
-move -r -0.923519 0 0 ;
-move -r 0 0.395599 0 ;
 polySoftEdge -a 180 -ch 1 pCylinder1;
 
 //right arm
 polyCylinder -radius .25 -height 4 -subdivisionsX 8 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
-move -r 0 9.01791 0 ;
-move -r 1.867065 0 0 ;
-move -r 0 0.35822 0 ;
-move -r -0.207581 0 0 ;
+move -r 2.867065 ($basesize*3) 0 ;
 rotate -r -os -fo 0 0 -49.451109 ;
-move -r 1.074347 -0.848169 0 ;
 polySoftEdge -a 180 -ch 1 pCylinder2;
 
 //brim
 polyCylinder -radius 1.75 -height .2 -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
-move -r 0 11 0 ;
+move -r 0 ((($basesize * 1.7) + $midsize*1.7)+ $topsize*1.7) 0 ;
 //top of hat
 polyCylinder -radius 1.1 -height 2 -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
-move -r 0 12 0 ;
+move -r 0 ((($basesize *1.8) + $midsize*1.8)+ $topsize*1.8) 0 ;
 polySoftEdge -a 180 -ch 1 pCylinder4.e[20:39];
 
 //Nose
 polyCone -radius .25 -height 1.25 -subdivisionsX 15 -subdivisionsY 1 -subdivisionsZ 0 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
-move -r 0 10 .475;
+move -r 0 (($basesize*2)+$midsize*2) ($topsize*1.3);
 rotate -r -os -fo 88.714633 0 0 ;
-move -r 0 0 1.607765 ;
 
 //Scarf
 polyTorus -radius 1 -sectionRadius 0.5 -twist 0 -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 1 -constructionHistory 1;
-move -r 0 8.810292 0 ;
-scale -r 1 1.088671 1 ;
+move -r 0 (($basesize * 1.7 ) + $midsize * 1.7) 0 ;
+
 
 //eyes
 polyPlatonic -primitive 4 -subdivisionMode 0 -subdivisions 0 -radius .25 -sphericalInflation 1;
-move -r 0.31027 0 0 ;
-move -r 0 0 1.27271 ;
-move -r 0.172213 0 0 ;
-move -r 0 10.428718 0 ;
-move -r 0 0 0.074697 ;
-move -r 0 -0.107534 0 ;
-move -r -0.141932 0 0 ;
-move -r 0 0.0638404 0 ;
-move -r 0 0.0609957 0 ;
+move -r 0.31027 ((($basesize*2)+$midsize*2)+.5) ($topsize/1.15);
 polyPlatonic -primitive 4 -subdivisionMode 0 -subdivisions 0 -radius .25 -sphericalInflation 1;
-move -r 0 10.517735 0 ;
-move -r 0 0 1.347786 ;
-move -r -0.29243 0 0 ;
-move -r 0 -0.0403445 0 ;
+move -r -0.29243 ((($basesize*2)+$midsize*2)+.5) ($topsize/1.15);
+
 
 //mouth
 duplicate -rr;
-move -r 0 -0.923748 0 ;
 scale -r 0.590826 0.590826 0.590826 ;
-move -r -0.325871 0 0 ;
-move -r 0.646396 0 0 ;
-move -r 0 -0.0790251 0 ;
+move -r ($basesize/10) ($midsize/ -2) ($topsize/12) ;
 duplicate -rr;
 move -r 0.317439 0 0 ;
 move -r 0 0.121118 0 ;
