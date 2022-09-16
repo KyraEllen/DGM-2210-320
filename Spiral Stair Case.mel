@@ -1,0 +1,18 @@
+float $boardheight = .25;
+float $boardwidth = 5;
+float $boarddepth = 1;
+float $stephight = 1;
+float $stepwidth = 0;
+float $stairpivot = 15;
+float $stepnum = 25;
+float $centerwidth = 3.5;
+polyCube -width $boardwidth -height $boardheight -depth $boarddepth -subdivisionsX 1 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -createUVs 4 -constructionHistory 1;
+rename |pCube1 "Step" ;
+move -relative $centerwidth 0 0 Step.scalePivot Step.rotatePivot ;
+
+for ($i = 1; $i <= $stepnum; $i++)
+{
+    duplicate -returnRootsOnly;
+    move -relative 0 $stephight $stepwidth ;
+    rotate -relative -objectSpace -forceOrderXYZ 0 $stairpivot 0 ;
+}
