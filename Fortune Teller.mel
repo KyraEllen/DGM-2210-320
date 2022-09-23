@@ -6,7 +6,7 @@
 
 
 // generate random lottery numbers
-proc string LotteryNumbers()
+global proc string LotteryNumbers()
 {
     int $values[];
     for ($i=0; $i < 7; $i++)
@@ -19,10 +19,65 @@ proc string LotteryNumbers()
 }
 
 
-proc BestestFriend()
+global proc BestestFriend(string $name)
 {
     string $names[] = {"Andrew","Ally","Parker","William","BJ","Karla","Abril","Kedrick","Jeralyn","Emily","Cassie","Keith","Ellie Jane","Katelynn","Ethan","Brandi","Corban"};
     int $size = size($names);
     int $randNum = `rand $size`;
-    print ("Your new bestest friend is " + $names[$randNum] + "!\n");
+    print ($name + ", Your new bestest friend is " + $names[$randNum] + "!\n");
 }
+
+global proc FortuneCookie()
+{
+    string $fortunes[] = {"A beautiful, smart, and loving person will be coming into your life.", 
+                        "A dubious friend may be an enemy in camouflage.",
+                        "A faithful friend is a strong defense.",
+                        "A feather in the hand is better than a bird in the air.",
+                        "A fresh start will put you on your way.",
+                        "A friend asks only for your time not your money.",
+                        "A friend is a present you give yourself.",
+                        "A gambler not only will lose what he has, but also will lose what he doesn’t have.",
+                        "A golden egg of opportunity falls into your lap this month.",
+                        "A good friendship is often more important than a passionate romance.",
+                        "A good time to finish up old tasks.",
+                        "A hunch is creativity trying to tell you something."};
+
+    int $randNum = `rand (size ($fortunes))`;
+    print ($fortunes[$randNum] + "\n");
+}
+
+global proc string Zodiac(int $birthYear)
+{
+    string $signs[] = {"Rat", "'Ox", "Tiger", "Snake", "Horse", "Sheep", "Monkey", "Rooster", "Dog", "Pig"};
+    
+    int $index = ($birthYear - 4) % 12;
+
+    return $signs[$index];
+}
+
+global proc FortuneTeller(string $myName, int $myBirthYear, int $operation) 
+{
+    if ($operation == 1)
+    {
+        print ("Your Lucky numbers for today are: " + LotteryNumbers() +"\n");
+    }
+    else if ($operation == 2)
+    {
+        BestestFriend($myName);
+    }
+    else if ($operation == 3)
+    {
+        FortuneCookie();
+    }
+    else if ($operation == 4)
+    {
+        print ("Based on your birth year, " + $myBirthYear + ", your zodiac sign is " + Zodiac($myBirthYear) + "\n");
+    }
+    else
+    {
+        print ("Please input a vaild oporation type as a value 1 through 4");
+    }
+}
+
+FortuneTeller("Andrew", 2000, 2);
+

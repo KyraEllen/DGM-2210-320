@@ -1,0 +1,12 @@
+//Sum
+//Difference
+//Multiplicatiom
+//Division
+//Power
+//Mean
+//Median
+
+float $A = 1;
+float $B = 2;
+float $sumtotal = ($A + $B);
+print ($sumtotal);
