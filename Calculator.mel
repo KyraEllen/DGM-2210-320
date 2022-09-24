@@ -1,12 +1,55 @@
 //Sum
 //Difference
-//Multiplicatiom
+//Multiplication
 //Division
 //Power
 //Mean
 //Median
 
-float $A = 1;
-float $B = 2;
-float $sumtotal = ($A + $B);
-print ($sumtotal);
+//Sum
+proc Sum(float $a, float $b, float $c, float $d)
+{
+    float $sumTotal = ($a + $b);
+    print ($sumTotal + "\n");
+}
+Sum
+
+
+//Differences
+proc Difference(float $a, float $b, float $c, float $d)
+{
+    float $differenceTotal = ($a - $b);
+    print ($differenceTotal + "\n");
+}
+
+//Multiplication
+proc Multiplication(float $a, float $b, float $c, float $d)
+{
+    float $multiplicationTotal = ($a * $b);
+    print ($multiplicationTotal + "\n");
+}
+
+//Division
+proc Division(float $a, float $b, float $c, float $d)
+{
+    float $divisionTotal = ($a / $b);
+    print ($divisionTotal + "\n");
+}
+
+//Power
+proc Power(float $a, float $b, float $c, float $d)
+{
+    float $powerTotal = ($a ^ $b);
+    print ($powerTotal + "\n");
+}
+
+//Mean
+proc Mean(float $a, float $b, float $c, float $d)
+{
+    float $meanTotal = (())
+}
+/*refs
+https://forums.cgsociety.org/t/mel-and-simple-math/1771097/3
+http://wiki.bk.tudelft.nl/toi-pedia/MEL_Troubleshooting
+http://forums.cgsociety.org/t/can-mel-be-used-to-perform-math-equations/1465283
+
