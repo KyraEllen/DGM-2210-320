@@ -21,7 +21,7 @@ global proc string LotteryNumbers()
 
 global proc BestestFriend(string $name)
 {
-    string $names[] = {"Andrew","Ally","Parker","William","BJ","Karla","Abril","Kedrick","Jeralyn","Emily","Cassie","Keith","Ellie Jane","Katelynn","Ethan","Brandi","Corban"};
+    string $names[] = {"Andrew","Ally","Parker","William","BJ","Karla","Abril","Kedrick","Jeralyn","Emily","Cassie","Keith","Ellie Jane","Katelynn","Ethan","Brandi","Corban" ,"Jaxon"};
     int $size = size($names);
     int $randNum = `rand $size`;
     print ($name + ", Your new bestest friend is " + $names[$randNum] + "!\n");

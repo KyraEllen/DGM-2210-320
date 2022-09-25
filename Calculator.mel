@@ -7,16 +7,18 @@
 //Median
 
 //Sum
-proc Sum(float $a, float $b, float $c, float $d)
+proc float Sum(float $value)
 {
-    float $sumTotal = ($a + $b);
-    print ($sumTotal + "\n");
+    float $value[] = {1, 2, 3, 4};
+    float $sumTotal = ($value + $value);
+    return ($sumTotal);
 }
-Sum
+Sum(1)
+print ($sumTotal + "\n");
 
 
 //Differences
-proc Difference(float $a, float $b, float $c, float $d)
+proc Difference(float $value)
 {
     float $differenceTotal = ($a - $b);
     print ($differenceTotal + "\n");
