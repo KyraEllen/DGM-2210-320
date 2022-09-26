@@ -5,53 +5,132 @@
 //Power
 //Mean
 //Median
-
+/*
 //Sum
-proc float Sum(float $value)
+global proc float Sum(float $numbers[])
 {
-    float $value[] = {1, 2, 3, 4};
-    float $sumTotal = ($value + $value);
-    return ($sumTotal);
+    float $sum = 0;
+    int $size = size ($numbers);
+    for ($i = 0; $i < $size; $i ++)
+    {
+        $sum = $sum + $numbers[$i];
+    }
+    return $sum;
 }
-Sum(1)
-print ($sumTotal + "\n");
-
+Sum ({1, 2, 3});
 
 //Differences
-proc Difference(float $value)
+global proc float Difference(float $numbers[])
 {
-    float $differenceTotal = ($a - $b);
-    print ($differenceTotal + "\n");
+    float $difference = 0;
+    int $size = size ($numbers);
+    for ($i = 0; $i < $size; $i ++)
+    {
+        $difference = $difference - $numbers[$i];
+    }
+    return $difference;
 }
 
 //Multiplication
-proc Multiplication(float $a, float $b, float $c, float $d)
+global proc float Multiplication(float $numbers[])
 {
-    float $multiplicationTotal = ($a * $b);
-    print ($multiplicationTotal + "\n");
+    float $multiplication = 0;
+    int $size = size ($numbers);
+    for ($i = 0; $i < $size; $i ++)
+    {
+
+        $multiplication = $multiplication * $numbers[$i];
+    }
+    return $multiplication;
 }
 
 //Division
-proc Division(float $a, float $b, float $c, float $d)
+global proc float Division(float $numbers[])
 {
-    float $divisionTotal = ($a / $b);
-    print ($divisionTotal + "\n");
+    float $division = 0;
+    int $size = size ($numbers);
+    for ($i = 0; $i < $size; $i ++)
+    {
+        $division = $division / $numbers[$i];
+    }
+    return $division;
 }
 
 //Power
-proc Power(float $a, float $b, float $c, float $d)
+global proc float Power(float $numbers[])
 {
-    float $powerTotal = ($a ^ $b);
-    print ($powerTotal + "\n");
+    float $power = 0;
+    int $size = size ($numbers);
+    for ($i = 0; $i < $size; $i ++)
+    {
+        $power = pow $power $numbers[$i];
+    }
+    return $power;
 }
 
 //Mean
-proc Mean(float $a, float $b, float $c, float $d)
+global proc float Mean(float $numbers[])
 {
-    float $meanTotal = (())
+    float $mean = 0;
+    int $size = size ($numbers);
+    for ($i = 0; $i < $size; $i ++)
+    {
+        $mean = (($mean + $numbers[$i])/ $size);
+    }
+    return $mean;
 }
-/*refs
-https://forums.cgsociety.org/t/mel-and-simple-math/1771097/3
-http://wiki.bk.tudelft.nl/toi-pedia/MEL_Troubleshooting
-http://forums.cgsociety.org/t/can-mel-be-used-to-perform-math-equations/1465283
+//Median
+global proc float Median(float $numbers[])
+{
+    float $median = 0;
+    int $size = size ($numbers);
+    for ($i = 0; $i < $size; $i ++)
+    {
+        $median = sort($numbers);
+        if ($size % 2 == 0)
+        {
+            ((($size/2) + ($size/2+1))/2);
+        }
+        else
+        {
+            ((($size + 1)/2)-1);
+        }
+    }
+    return $median;
 
+    global proc Calculater(float $sum, float $difference, float $multiplication, float $division, float $power, float $mean, float $median) 
+{
+    if ($operation == 1)
+    {
+        print ("The sum equals: " + $sum +"\n");
+    }
+    else if ($operation == 2)
+    {
+        print ("The difference equals: ": $difference +"\n");
+    }
+    else if ($operation == 3)
+    {
+        print ("The product equals: ": $multiplication +"\n");
+    }
+    else if ($operation == 4)
+    {
+        print ("The quotient is ": $divison +"\n");
+    }
+    else if ($operation == 5)
+    {
+       print ("The powering is: " + $power +"\n"); 
+    }
+    else if ($operation == 6)
+    {
+        print ("The mean is: " + $mean +"\n");
+    }
+    else if ($operation == 7)
+    {
+        print ("The median is: " + $median +"\n");
+    }
+    else
+    {
+        print ("Please input a vaild oporation type as a value 1 through 4");
+    }
+}
+};
