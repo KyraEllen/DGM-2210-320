@@ -7,26 +7,24 @@
 //Median
 /*
 //Sum
-global proc float Sum(float $numbers[])
+global proc float Addition(float $numbers[])
 {
-    float $sum = 0;
-    int $size = size ($numbers);
-    for ($i = 0; $i < $size; $i ++)
+    float $sum = 0; // the index number location
+    for ($index=0; $index< size($numbers); $index++)
     {
-        $sum = $sum + $numbers[$i];
+        $sum = $sum + $numbers[$index];
     }
     return $sum;
 }
-Sum ({1, 2, 3});
+Addition ({1, 2, 3});
 
 //Differences
 global proc float Difference(float $numbers[])
 {
-    float $difference = 0;
-    int $size = size ($numbers);
-    for ($i = 0; $i < $size; $i ++)
+    float $difference = 0; // the index number location
+    for ($index=1; $index<size($numbers); $index++)
     {
-        $difference = $difference - $numbers[$i];
+        $difference -= $difference + $numbers[$index];
     }
     return $difference;
 }
@@ -34,48 +32,44 @@ global proc float Difference(float $numbers[])
 //Multiplication
 global proc float Multiplication(float $numbers[])
 {
-    float $multiplication = 0;
-    int $size = size ($numbers);
-    for ($i = 0; $i < $size; $i ++)
+    float $product = 0; // the index number location
+    for ($index=1; $index<size($numbers); $index++)
     {
-
-        $multiplication = $multiplication * $numbers[$i];
+        $product *= $product + $numbers[$index];
     }
-    return $multiplication;
+    return $product;
 }
 
 //Division
 global proc float Division(float $numbers[])
 {
-    float $division = 0;
-    int $size = size ($numbers);
-    for ($i = 0; $i < $size; $i ++)
+    float $quotient = 0; // the index number location
+    for ($index=1; $index<size($numbers); $index++)
     {
-        $division = $division / $numbers[$i];
+        $quotient /= $quotient + $numbers[$index];
     }
-    return $division;
+    return $quotient;
 }
 
 //Power
 global proc float Power(float $numbers[])
 {
-    float $power = 0;
-    int $size = size ($numbers);
-    for ($i = 0; $i < $size; $i ++)
+    float $power = 0; // the index number location
+    for ($index=1; $index<size($numbers); $index++)
     {
-        $power = pow $power $numbers[$i];
+        $power = pow ($power, $numbers[$index]);
     }
     return $power;
 }
 
+
 //Mean
 global proc float Mean(float $numbers[])
 {
-    float $mean = 0;
-    int $size = size ($numbers);
-    for ($i = 0; $i < $size; $i ++)
+   float $mean = 0; // the index number location
+    for ($index=1; $index<size($numbers); $index++)
     {
-        $mean = (($mean + $numbers[$i])/ $size);
+        $mean = (($mean + $numbers[$index])/ size($numbers));
     }
     return $mean;
 }
@@ -83,54 +77,76 @@ global proc float Mean(float $numbers[])
 global proc float Median(float $numbers[])
 {
     float $median = 0;
-    int $size = size ($numbers);
-    for ($i = 0; $i < $size; $i ++)
+    int $size = size($numbers);
+    for ($i = 0; $i < size; $i ++)
     {
         $median = sort($numbers);
         if ($size % 2 == 0)
         {
-            ((($size/2) + ($size/2+1))/2);
+           $median = (((size/2) + (size/2+1))/2);
         }
         else
         {
-            ((($size + 1)/2)-1);
+            $median = (((size + 1)/2)-1);
         }
     }
     return $median;
-
-    global proc Calculater(float $sum, float $difference, float $multiplication, float $division, float $power, float $mean, float $median) 
+}
+global proc Calculater(float $input[], int $operation) 
 {
+    float $result;
+
     if ($operation == 1)
     {
-        print ("The sum equals: " + $sum +"\n");
+        //perform addition
+        $result = Sum($input);
+        $operationSymbol = "+";
     }
     else if ($operation == 2)
     {
-        print ("The difference equals: ": $difference +"\n");
+        //perform subraction
+        $result = Subtraction($input);
+        $operationSymbol = "-";
     }
     else if ($operation == 3)
     {
-        print ("The product equals: ": $multiplication +"\n");
+        //perform multiplication
+        $result = Multiplication($input);
+        $operationSymbol = "*";
     }
     else if ($operation == 4)
     {
-        print ("The quotient is ": $divison +"\n");
+        //perform division
+        $result = Division($input);
+        $operationSymbol = "/";
     }
     else if ($operation == 5)
     {
-       print ("The powering is: " + $power +"\n"); 
+      //perform power
+        $result = Power($input);
+        $operationSymbol = "^"; 
     }
     else if ($operation == 6)
     {
-        print ("The mean is: " + $mean +"\n");
+        //perform mean
+        $result = Mean($input);
+        $operationSymbol = "x̄";
     }
     else if ($operation == 7)
     {
-        print ("The median is: " + $median +"\n");
+        //perform median
+        $result = Median($input);
+        $operationSymbol = "μ";
     }
     else
     {
         print ("Please input a vaild oporation type as a value 1 through 4");
     }
+    //Pretty Print
+    string $sentence;
+    $sentence = "The result of";
+    $sentence += floatArrayToString($input, $operationSymbol);
+    $sentence += "=" + $result + "/n";
+
+    print ($sentence );
 }
-};
