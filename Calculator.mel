@@ -5,7 +5,7 @@
 //Power
 //Mean
 //Median
-/*
+
 //Sum
 global proc float Addition(float $numbers[])
 {
@@ -78,23 +78,23 @@ global proc float Median(float $numbers[])
 {
     float $median = 0;
     int $size = size($numbers);
-    for ($i = 0; $i < size; $i ++)
+    for ($i = 0; $i < $size; $i ++)
     {
         $median = sort($numbers);
         if ($size % 2 == 0)
         {
-           $median = (((size/2) + (size/2+1))/2);
+           $median = ((($size/2) + ($size/2+1))/2);
         }
         else
         {
-            $median = (((size + 1)/2)-1);
+            $median = ((($size + 1)/2)-1);
         }
     }
     return $median;
 }
-global proc Calculater(float $input[], int $operation) 
+global proc Calculater(float $input[], int $operation, string $operationSymbol, float $result) 
 {
-    float $result;
+    //float $result;
 
     if ($operation == 1)
     {
@@ -149,4 +149,6 @@ global proc Calculater(float $input[], int $operation)
     $sentence += "=" + $result + "/n";
 
     print ($sentence );
+    return ($result);
 }
+
