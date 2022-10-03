@@ -92,7 +92,7 @@ global proc float Median(float $numbers[])
     }
     return $median;
 }
-global proc Calculater(float $input[], int $operation, string $operationSymbol, float $result) 
+global proc float Calculater(float $input[], int $operation, string $operationSymbol, float $result) 
 {
     //float $result;
 
