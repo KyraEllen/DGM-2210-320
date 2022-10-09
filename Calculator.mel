@@ -152,3 +152,4 @@ global proc float Calculater(float $input[], int $operation, string $operationSy
     return ($result);
 }
 
+global proc FT_ButtonCmd()

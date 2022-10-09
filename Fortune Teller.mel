@@ -86,7 +86,7 @@ global proc FT_ButtonCmd()
     string $nameField = `optionVar -q "ftNameField"`;
     string $yearField = `optionVar -q "ftYearField"`;
     string $operField = `optionVar -q "ftOperation"`;
-    string $resultFiekd = `optionVar -q "ftResult"`;
+    string $resultField = `optionVar -q "ftResult"`;
 
     string $name = `textField -q -text $nameField`;
     string $year = `intField -q -value $yearField`;
@@ -108,12 +108,12 @@ global proc FortuneUI()
                         -resizeToFitChildren 1
                         $mWindow`;
     string $mColumn = `columnLayout -parent $mWindow -adjustableColumn 1`;
-    optionVar -stringValue "ftNamesField" `textField -parent $mColumn -placeholderText "Enter name here...";
+    optionVar -stringValue "ftNamesField" `textField -parent $mColumn -placeholderText "Enter name here..."`;
     optionVar -stringValue "ftYearField" `intField -parent $mColumn`;
-    optionVar -stringValue "ftOperation" radioButtonGrp -parent $mColumn -numberOfRadioButtons 4 -lableArray4 "Lucky Numbers" "Best Friend" "Fortune Cookie" "Zodiac Sign";
+    optionVar -stringValue "ftOperation" `radioButtonGrp -parent $mColumn -numberOfRadioButtons 4 -labelArray4 "Lucky Numbers" "Best Friend" "Fortune Cookie" "Zodiac Sign"`;
     button -parent $mColumn -label "Go!" -command "FT_ButtonCmd";
-    optionVar -stringVallue "ftResults" `testField -parent $mColumn -editable 0`;
-    showWindow $mWindow
+    optionVar -stringValue "ftResults" `textField -parent $mColumn -editable 0`;
+    showWindow $mWindow;
 }
 
 FortuneUI();
