@@ -99,7 +99,7 @@ global proc float Calculater(float $input[], int $operation, string $operationSy
     if ($operation == 1)
     {
         //perform addition
-        $result = Sum($input);
+        $result = Addition($input);
         $operationSymbol = "+";
     }
     else if ($operation == 2)
@@ -180,15 +180,20 @@ global proc CalculatorUI()
     if(`window -exists $mWindow`)
         deleteUI $mWindow;
 
-    $mWindow = `window -title "Calculator" 
+    $mWindow = `window -title "Calculator"
                         -widthHeight 300 400
                         -resizeToFitChildren 1
                         $mWindow`;
-    string $mColumn = `columnLayout -parent $mWindow -adjustableColumn 1`;
-    optionVar -stringValue "ftNumberField" `textField -parent $mColumn -placeholderText "Enter numbers here..."`;
-    optionVar -stringValue "ftOperation" `radioButtonGrp -parent $mColumn -numberOfRadioButtons 7 -labelArray4 "Sum" "Difference" "Multiplication" "Division" "Power" "Mean" "Median"`;
-    button -parent $mColumn -label "Go!" -command "FT_ButtonCmd";
-    optionVar -stringValue "ftResults" `textField -parent $mColumn -editable 0`;
+    string $rCollection =`radioCollection -parent $mColumn`;
+    optionVar -stringValue "myCollection" $rCollection;
+    radioButton -parent $mColumn -collection $rCollection -label "Add";
+    radioButton -parent $mColumn -collection $rCollection -label "Subtract";
+    radioButton -parent $mColumn -collection $rCollection -label "Multiply";
+    radioButton -parent $mColumn -collection $rCollection -label "Divide";
+    radioButton -parent $mColumn -collection $rCollection -label "Mean";
+    radioButton -parent $mColumn -collection $rCollection -label "Median";
+
+    button -parent -$mColumn -label "=" -command "btnCmd";
     showWindow $mWindow;
 }
 

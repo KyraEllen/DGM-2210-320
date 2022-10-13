@@ -1,0 +1,58 @@
+global proc float Random (float $xMin, float $xMax, float $yMin, float $yMax, float $zMin, float $zMax)
+{
+    string $selected [] = `ls -sl`;
+    int $quanity = `size $selected`;
+    duplicate $selected;
+
+    for ($i = 0; $i<= $quanity; $i++)
+    {
+        float $xAxis = rand ($xMin,$xMax);
+        float $yAxis = rand ($yMin, $yMax);
+        float $zAxis = rand ($zMin,$zMax);
+
+        setAttr($selected[$i]+".translateX") $xAxis;
+        setAttr($selected[$i]+".translateY") $yAxis;
+        setAttr($selected[$i]+".translateZ") $zAxis;
+            float $size = rand(.5,2);
+
+        setAttr($selected[$i]+".scaleX") $size;
+        setAttr($selected[$i]+".scaleY") $size;
+        setAttr($selected[$i]+".scaleZ") $size;
+    }
+    return $quanity;
+}
+
+global proc FT_ButtonCmd() 
+{
+    float $xMin = `optionVar -q "ftXminField"`;
+    float $xMax = `optionVar -q "ftXmaxField"`;
+    float $yMin = `optionVar -q "ftYminField"`;
+    float $yMax = `optionVar -q "ftYmaxField"`;
+    float $zMin = `optionVar -q "ftZminField"`;
+    float $zMax = `optionVar -q "ftZmaxField"`;
+    Random($xMin, $xMax, $yMin, $yMax, $zMin, $zMax);
+}
+
+global proc RandomUI()
+{
+    string $mWindow = "ftWindow";
+
+    if(`window -exists $mWindow`)
+        deleteUI $mWindow;
+
+ $mWindow = `window -title "Randomizer" 
+                        -widthHeight 300 400
+                        -resizeToFitChildren 1
+                        $mWindow`;
+    string $mColumn = `columnLayout -parent $mWindow -adjustableColumn 1`;
+    optionVar -stringValue "ftXminField" `textField -parent $mColumn -placeholderText "Enter number here..."`;
+    optionVar -stringValue "ftXmaxField" `textField -parent $mColumn -placeholderText "Enter number here..."`;
+    optionVar -stringValue "ftYminField" `textField -parent $mColumn -placeholderText "Enter number here..."`;
+    optionVar -stringValue "ftYmaxField" `textField -parent $mColumn -placeholderText "Enter number here..."`;
+    optionVar -stringValue "ftZminField" `textField -parent $mColumn -placeholderText "Enter number here..."`;
+    optionVar -stringValue "ftZmaxField" `textField -parent $mColumn -placeholderText "Enter number here..."`;
+    button -parent $mColumn -label "Go!" -command "FT_ButtonCmd";
+    showWindow $mWindow;
+}
+
+RandomUI();
