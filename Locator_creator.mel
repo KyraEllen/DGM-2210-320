@@ -1,0 +1,11 @@
+string $selection[] = `ls -sl`;
+
+string $clusterArray[] = `cluster $selection`;
+string $cluster =$clusterArray[1];
+
+float $position[] = `xform -query -worldSpace -rotatePivot $cluster`;
+
+string $locator[] = `spaceLocator`;
+
+xform -worldSpace -translation $position[0] $position[1] $position[2] $locator;
+delete $cluster;

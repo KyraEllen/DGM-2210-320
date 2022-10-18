@@ -18,4 +18,4 @@ proc string NamePicker()
 
 
 
-print (NamePicker() + "'s favorite number is " + RandomNumber(100) + "!\n");
+print (NamePicker() + "'s favorite number is " + RandomNumber(100) + "!\n");e
